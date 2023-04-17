@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 
 Route::get('/', [ComicController::class, 'index']);
+Route::get('/comic/{id}', [ComicController::class, 'show']);
