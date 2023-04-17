@@ -18,5 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', [ComicController::class, 'index']);
-Route::get('/comic/{id}', [ComicController::class, 'show']);
+Route::get('/comics', [ComicController::class, 'index']);
+Route::get('/comics/create', [ComicController::class, 'create']);
+Route::post('/comics', [ComicController::class, 'store']);
+Route::get('/comics/{id}', [ComicController::class, 'show']);
+Route::get('/comics/{id}/edit', [ComicController::class, 'edit']);
+Route::put('/comics/{id}', [ComicController::class, 'update']);
