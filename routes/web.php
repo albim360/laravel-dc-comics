@@ -24,3 +24,5 @@ Route::post('/comics', [ComicController::class, 'store']);
 Route::get('/comics/{id}', [ComicController::class, 'show']);
 Route::get('/comics/{id}/edit', [ComicController::class, 'edit']);
 Route::put('/comics/{id}', [ComicController::class, 'update']);
+Route :: delete ( '/comics/{id}' , [ ComicController :: class , 'destroy' ]);
+Route :: delete ( '/comics' , [ ComicController :: class , 'destroyAll' ]);
