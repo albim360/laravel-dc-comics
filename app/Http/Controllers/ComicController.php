@@ -34,7 +34,7 @@ class ComicController extends Controller
         $comic->save();
         return redirect('/comic/' . $comic->id);
 
-        retutn to_route ('comic.show', ['id' => $comic->id]);
+        return to_route ('comic.show', ['id' => $comic->id]);
     }
 
     public function edit($id)
@@ -65,7 +65,6 @@ public function destroy($id)
     return redirect('/comics');
 }
 
-}
 
 public function destroyAll()
 {
