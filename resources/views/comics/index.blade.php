@@ -20,6 +20,11 @@
                 </tr>
             </thead>
             <tbody>
+            <form action="{{ route('comics.destroy.all') }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger">Delete all</button>
+            </form>
                 @foreach ($comics as $comic)
                 <tr>
                     <td>{{ $comic->id }}</td>
