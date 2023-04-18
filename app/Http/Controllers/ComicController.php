@@ -34,7 +34,7 @@ class ComicController extends Controller
         $comic->save();
         return redirect('/comic/' . $comic->id);
 
-        retutn to_route('comic.show', ['id' => $comic->id]);
+        retutn to_route ('comic.show', ['id' => $comic->id]);
     }
 
     public function edit($id)
@@ -45,7 +45,8 @@ class ComicController extends Controller
 
     public function update(Request $request, $id)
 
-        $data = $request->all();
+    $comics request -> all();
+
     {
         $comic = Comic::find($id);
         $comic->title = $request->title;
@@ -55,4 +56,25 @@ class ComicController extends Controller
         $comic->save();
         return redirect('/comic/' . $comic->id);
     }
+}
+
+public function destroy($id)
+{
+    $comic = Comic::find($id);
+    $comic->delete();
+    return redirect('/comics');
+}
+
+}
+
+public function destroyAll()
+{
+    $comics = Comic::all();
+    $ids = $comics->pluck('id');
+
+    comic :: destroy($ids);
+
+    return to_route('comics.index');
+}
+
 }
