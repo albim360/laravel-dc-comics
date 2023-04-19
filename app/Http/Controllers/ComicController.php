@@ -45,8 +45,6 @@ class ComicController extends Controller
 
     public function update(Request $request, $id)
 
-    $comics request -> all();
-
     {
         $comic = Comic::find($id);
         $comic->title = $request->title;
@@ -76,4 +74,18 @@ public function destroyAll()
     return to_route('comics.index');
 }
 
+public function store (Request $request)
+{
+    $comic = Comic::create($request->all());
+    return to_route('comic.show', ['id' => $comic->id]);
+    $data = $request->validate([
+
+        'title' => 'required|max:255|min:3',
+        'description' => 'required|max:255|min:3',
+        'price' => 'required|numeric|min:0.01',
+        'series' => [
+            'required',
+            Rule::in(['DC', 'Marvel'
+        ],
+    ]);
 }
